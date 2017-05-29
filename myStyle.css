@@ -40,7 +40,7 @@ carousel-inner>.item>img {
 }
 }
 
-.container #about.jumbotron {
+.container #about.jumbotron, .jumbotron {
     padding-top: 5px;
     padding-bottom: 5px;
     margin-bottom: 10px;

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
 </head>
-<body onload="getLocation()">
+<body>
     <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
@@ -157,11 +157,11 @@
         <!--&nbsp; <a href="#">FAQ's</a>-->
         <span id="float">Designed by <a href="#">viswa &nbsp;&nbsp;&nbsp;&nbsp;</a></span></div>
     </footer>
-    <script src="location.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwVEjKz1fmBG9ej4lLiau-7w90McB0VqI&callback=myMap"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
     </script>
+    <script src="location.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwVEjKz1fmBG9ej4lLiau-7w90McB0VqI&callback=myMap"></script>
 </body>
 </html>
