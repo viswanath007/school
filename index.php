@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
 </head>
-<body>
+<body onload="getLocation()">
     <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
@@ -53,7 +53,8 @@
   </div><!-- .container -->
 </nav>
 
-<div id="carousel" class="carousel slide container" data-ride="carousel">
+<div class="container">
+<div id="carousel" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carousel" data-slide-to="0" class="active"></li>
     <li data-target="#carousel" data-slide-to="1"></li>
@@ -94,7 +95,7 @@
   </a>
 </div>
 
-    <div class="jumbotron container" id="about">
+    <div class="jumbotron" id="about">
       <div class="row">
         <div class="col-xs-1"></div>
         <div class="col-xs-10 text-justify">
@@ -107,9 +108,10 @@
         </div>
       </div>
     </div>
-        <div class="container well"  id="contact">
+        <div class="well"  id="contact">
           <h3 class="text-center">Contact US</h3>
         <div class="row">
+        <div class="col-md-1"></div>
         <div class="col-md-4 well">
           <address>
               <strong>Akshara School</strong><br>
@@ -120,10 +122,7 @@
               <span class="glyphicon glyphicon-envelope"></span><strong> Email:</strong><a href="mailto:#">aksharaschool@gmail.com</a>
         </address>
       </div>
-      </div>
-<p id="demo">Click the button to get your position.</p>
-<button onclick="getLocation()">Try It</button>
-<div id="mapholder"></div>
+    <div class="col-md-1"></div>
     <form class="form-horizontal col-md-5 well">
       <div class="form-group">
         <label class="control-label col-sm-2" for="email">Email:</label>
@@ -150,12 +149,16 @@
       </div>
     </form>
     </div>
+    </div>
+      <div id="googleMap" style="width:100%;height:450px;"></div>
+    </div>
     <footer>
         <div id="copyright" class="text-center"><span>Copyright <?php echo date("Y");?>. All Rights Reserved.</span>
         <!--&nbsp; <a href="#">FAQ's</a>-->
         <span id="float">Designed by <a href="#">viswa &nbsp;&nbsp;&nbsp;&nbsp;</a></span></div>
     </footer>
     <script src="location.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwVEjKz1fmBG9ej4lLiau-7w90McB0VqI&callback=myMap"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
