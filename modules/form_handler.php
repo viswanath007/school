@@ -1,7 +1,19 @@
 <?php 
-    $email = $pwd = $msg = $emailErr = $pwdErr = "";
+    $email = $name = $msg = $emailErr = $nameErr = "";
       
     if($_SERVER["REQUEST_METHOD"] === "POST"){
+        
+        if(empty($_POST["name"])){
+          $nameErr = "Name is Required";
+        } else{
+          $name = $_POST["name"];
+          if(!preg_match("/^[a-zA-Z]*$/", $name)){
+            $nameErr = "Please enter valid Name";
+          } else {
+            $name = test_input($name);
+          }
+        }
+        
         if(empty($_POST["email"])){
           $emailErr = "Email is Required";
         } else{
@@ -13,17 +25,6 @@
           }
         }
       
-        if(empty($_POST["pwd"])){
-          $pwdErr = "password is Required";
-        } else{
-          $pwd = $_POST["pwd"];
-          if(!preg_match("/^[a-zA-Z0-9]*$/", $pwd)){
-            $pwdErr = "Please enter valid password";
-          } else {
-            $pwd = test_input($pwd);
-          }
-        }
-        
         if(!empty($_POST["msg"])){
           $msg = test_input($_POST["msg"]);
         }

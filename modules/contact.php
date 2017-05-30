@@ -15,18 +15,16 @@
         <div class="col-md-1"></div>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form-horizontal col-md-5 well">
           <div class="form-group">
-            <label class="control-label col-sm-2" for="email">Email:</label>
-            <div class="col-sm-10"><span class="error"> <?php echo $emailErr;?></span>
-              <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" 
-              value="<?php echo $email; ?>" required>
+            <label class="control-label col-sm-2" for="name">Name:</label>
+            <div class="col-sm-10"><span class="error"> <?php echo $nameErr;?></span> 
+              <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" maxlength="15"
+                title="letters min 8 and max 15 chars only" pattern="[a-zA-Z]{8}" value="<?php echo $name; ?>" required>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-2" for="pwd">Password:</label>
-            <div class="col-sm-10"><span class="error"> <?php echo $pwdErr;?></span> 
-              <input type="password" name="pwd" class="form-control" id="pwd" placeholder="Enter password" maxlength="15"
-              title="letters and numbers min 8 max 15 chars only" pattern="[a-zA-Z0-9]{8}"
-              value="<?php echo $pwd; ?>" required>
+            <label class="control-label col-sm-2" for="email">Email:</label>
+            <div class="col-sm-10"><span class="error"> <?php echo $emailErr;?></span>
+              <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" value="<?php echo $email; ?>" required>
             </div>
           </div>
           <div class="form-group">
