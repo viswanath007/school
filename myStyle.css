@@ -1,3 +1,6 @@
+span.error {
+    color: #f00;
+}
 .navbar-default {
     background-color: #00bcd4;
 }

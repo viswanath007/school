@@ -13,6 +13,45 @@
     
 </head>
 <body>
+  <?php
+      $email = $pwd = $msg = "";
+      $emailErr = $pwdErr = "";
+      
+      if($_SERVER["REQUEST_METHOD"] === "POST"){
+        if(empty($_POST["email"])){
+          $emailErr = "Email is Required";
+        } else{
+          $email = $_POST["email"];
+          if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $emailErr = "Please enter valid email";
+          } else {
+            $email = test_input($email);
+          }
+        }
+      
+       if(empty($_POST["pwd"])){
+          $pwdErr = "password is Required";
+        } else{
+          $pwd = $_POST["pwd"];
+          if(!preg_match("/^[a-zA-Z0-9]*$/", $pwd)){
+            $pwdErr = "Please enter valid password";
+          } else {
+            $pwd = test_input($pwd);
+          }
+        }
+        
+        if(!empty($_POST["msg"])){
+          $msg = test_input($_POST["msg"]);
+        }
+      }
+      
+      function test_input($input){
+          $input = trim($input);
+          $input = stripslashes($input);
+          $input = htmlspecialchars($input);
+          return $input;
+        }
+    ?>
     <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
@@ -123,23 +162,28 @@
         </address>
       </div>
     <div class="col-md-1"></div>
-    <form class="form-horizontal col-md-5 well">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form-horizontal col-md-5 well">
       <div class="form-group">
         <label class="control-label col-sm-2" for="email">Email:</label>
-        <div class="col-sm-10">
-          <input type="email" class="form-control" id="email" placeholder="Enter email">
+        <div class="col-sm-10"><span class="error"> <?php echo $emailErr;?></span>
+          <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" 
+          value="<?php echo $email; ?>" required>
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-2" for="pwd">Password:</label>
-        <div class="col-sm-10"> 
-          <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+        <div class="col-sm-10"><span class="error"> <?php echo $pwdErr;?></span> 
+          <input type="password" name="pwd" class="form-control" id="pwd" placeholder="Enter password" maxlength="15"
+          title="letters and numbers min 8 max 15 chars only" pattern="[a-zA-Z0-9]{8}"
+          value="<?php echo $pwd; ?>" required>
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-2" for="msg">Message:</label>
         <div class="col-sm-10">
-          <textarea class="form-control" id="msg" placeholder="Enter Message" cols="30" rows="5"></textarea>
+          <textarea class="form-control" name="msg" id="msg" placeholder="Enter Message" cols="30" rows="5">
+            <?php echo $msg; ?>
+          </textarea>
         </div>
       </div>
       <div class="form-group"> 
@@ -154,7 +198,6 @@
     </div>
     <footer>
         <div id="copyright" class="text-center"><span>Copyright <?php echo date("Y");?>. All Rights Reserved.</span>
-        <!--&nbsp; <a href="#">FAQ's</a>-->
         <span id="float">Designed by <a href="#">viswa &nbsp;&nbsp;&nbsp;&nbsp;</a></span></div>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
